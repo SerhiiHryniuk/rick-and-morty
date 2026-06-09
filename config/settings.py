@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rick_and_morty.apps.RickAndMortyConfig",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
