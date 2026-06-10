@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rick_and_morty.apps.RickAndMortyConfig",
     "rest_framework",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -81,3 +82,14 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 RICK_AND_MORTY_CHARACTERS_API_URL = "https://rickandmortyapi.com/api/character/"
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Rick and Morty API",
+    "DESCRIPTION": "API for Rick and Morty characters",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}
