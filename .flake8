@@ -9,3 +9,4 @@ exclude =
     .config,
     config/
 inline-quotes = double
+ignore = ANN101, ANN102, ANN002, ANN003

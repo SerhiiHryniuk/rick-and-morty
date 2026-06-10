@@ -1,5 +1,6 @@
 import random
 
+from django.db.models import QuerySet
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import status, generics
 from rest_framework.decorators import api_view
@@ -25,7 +26,7 @@ def get_random_character_view(request: Request) -> Response:
 class CharacterListView(generics.ListAPIView):
     serializer_class = CharacterSerializer
 
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet:
         queryset = Character.objects.all()
         name = self.request.query_params.get("name")
         if name:
@@ -40,5 +41,5 @@ class CharacterListView(generics.ListAPIView):
             required=False,
         )
     ])
-    def get(self, request, *args, **kwargs) -> Response:
+    def get(self, request: Request, *args, **kwargs) -> Response:
         return super().get(request, *args, **kwargs)
